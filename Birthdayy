@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Dagi 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: Arial;
+      overflow: hidden;
+      color: white;
+      background: black;
+    }
+
+    #startScreen {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 20px;
+      border-radius: 20px;
+      border: none;
+      background: pink;
+      color: black;
+    }
+
+    #mainContent {
+      display: none;
+      height: 100vh;
+      background: linear-gradient(to right, purple, pink);
+      padding-top: 40px;
+      position: relative;
+    }
+
+    h1 {
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 30px yellow; }
+    }
+
+    img {
+      width: 150px;
+      border-radius: 20px;
+      margin: 15px;
+    }
+
+    /* floating hearts */
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="music" loop>
+  <source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">
+</audio>
+
+<div id="startScreen">
+  <h2>🎁 Hey Dagi… tap to open your surprise 💝</h2>
+  <button onclick="openGift()">Open 💖</button>
+</div>
+
+<div id="mainContent">
+
+  <h1>🎉 Happy Birthday Dagi 🎂</h1>
+
+  <!-- 📸 PHOTO -->
+  <img src="YOUR-IMAGE-LINK.jpg">
+
+  <p>
+    You are the most adorable and hilarious person I know 😂💖<br><br>
+
+    It’s been 3 beautiful years of being soulmates 😊<br><br>
+
+    Your kindness, generosity, and your optimistic heart make you so special 🌸<br><br>
+
+    And of course… the cutest dog lover ever 🐶💕<br><br>
+
+    I’m so lucky to have you in my life 💌<br><br>
+
+    — Your soulmate, Sosina 💖
+  </p>
+
+  <!-- 🐶 DOG GIF -->
+  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+
+</div>
+
+<script>
+function openGift() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+  document.getElementById("music").play();
+
+  // 💖 create hearts
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random()*20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
+Add Dagi birthday surprise.
