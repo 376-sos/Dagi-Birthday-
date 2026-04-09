@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Dagi 💖</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      color: white;
+      background: black;
+    }
+
+    #startScreen {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 20px;
+      border-radius: 20px;
+      border: none;
+      background: pink;
+      color: black;
+      cursor: pointer;
+    }
+
+    #mainContent {
+      display: none;
+      min-height: 100vh;
+      background: linear-gradient(to right, purple, pink);
+      padding-top: 40px;
+      position: relative;
+    }
+
+    h1 {
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 30px yellow; }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .photo-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .gallery img {
+      width: 180px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* floating hearts */
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+
+    /* sparkling stars behind photos */
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: yellow;
+      border-radius: 50%;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: sparkleAnim linear infinite;
+    }
+
+    @keyframes sparkleAnim {
+      0% { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(30px,-50px) scale(0); opacity: 0; }
+    }
+
+    .messages {
+      margin-top: 30px;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div id="startScreen">
+  <h2>🎁 Hey Dagi… tap to open your surprise 💝</h2>
+  <button onclick="openGift()">Open 💖</button>
+</div>
+
+<div id="mainContent">
+
+  <h1>🎉 Happy Birthday Dagi 🎂</h1>
+
+  <!-- 📸 PHOTO GALLERY WITH SPARKLES -->
+  <div class="gallery">
+    <div class="photo-container"><img src="https://i.imgur.com/xhYrKzk.jpeg" alt="Dagu 1"></div>
+    <div class="photo-container"><img src="https://i.imgur.com/ZvZiCEp.jpeg" alt="Dagu 2"></div>
+    <div class="photo-container"><img src="https://i.imgur.com/p9c2rv1.jpeg" alt="Dagu 3"></div>
+    <div class="photo-container"><img src="https://i.imgur.com/LLXOZ61.jpeg" alt="Dagu 4"></div>
+  </div>
+
+  <!-- 📝 BIRTHDAY MESSAGES -->
+  <div class="messages">
+    <p>💌 Dagi, you light up my life with your smile every day!</p>
+    <p>🌸 Your laughter is contagious, and your heart is pure gold.</p>
+    <p>🐶 From your love for dogs to your kindness for everyone around you, you’re simply amazing.</p>
+    <p>🎉 Every moment with you feels magical, and I’m so lucky to share life with you.</p>
+    <p>💖 Happy Birthday, my adorable and hilarious soulmate!</p>
+  </div>
+
+  <!-- 🐶 DOG GIF -->
+  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Cute Dog" style="margin-top:20px; width:250px; border-radius:20px;">
+
+</div>
+
+<script>
+function openGift() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+  document.getElementById("music").play();
+
+  // 💖 floating hearts
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random()*20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+
+  // ✨ sparkles behind each photo
+  const photoContainers = document.querySelectorAll(".photo-container");
+  setInterval(() => {
+    photoContainers.forEach(container => {
+      let sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      sparkle.style.left = Math.random() * container.offsetWidth + "px";
+      sparkle.style.top = Math.random() * container.offsetHeight + "px";
+      sparkle.style.animationDuration = (1 + Math.random() * 1.5) + "s";
+      container.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1500);
+    });
+  }, 200);
+}
+</script>
+
+</body>
+</html>
+<!-- Add birthday surprise code -->
+
+
+
+
